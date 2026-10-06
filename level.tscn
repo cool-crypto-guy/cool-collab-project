@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=4 uid="uid://hxnmdy08f8i8"]
+
+[ext_resource type="Texture2D" uid="uid://bk2buvqaki7q7" path="res://icon.svg" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://dldbwg746evfu" path="res://player.tscn" id="2_vonw3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vonw3"]
+texture = ExtResource("1_u52ul")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_oi3di"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_vonw3")
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_oi3di")
+
+[node name="Player" parent="." instance=ExtResource("2_vonw3")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
